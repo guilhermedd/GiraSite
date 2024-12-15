@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Giras" %>
+
+<div class="container">
+
+    <div class="row justify-content-start">
+
+      <div class="col text-center">
+        <h1>Próximas Giras:</h1>
+      </div>
+    </div>
+    <div id="giras">
+
+      <% @giras.each do |gira| %>
+        <%= render gira %>
+      <% end %>
+
+    </div>
+
+  <% if user_signed_in? and current_user.name == 'admin' %>
+    <%= link_to "New gira", new_gira_path %>
+  <% end %>
+
+  <p style="color: green"><%= notice %></p>
+</div>

@@ -1,0 +1,22 @@
+/* Garanta que o HTML e o body ocupem toda a altura da tela */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Torna o corpo um contêiner flexível */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* A parte do conteúdo vai crescer para preencher o espaço disponível */
+.content {
+    flex: 1;
+}
+
+/* Estilo do rodapé */
+footer {
+    background-color: #343a40; /* Cor do fundo do rodapé */
+    color: white;
+}

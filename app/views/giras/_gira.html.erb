@@ -1,0 +1,14 @@
+<div class="row justify-content-center">
+  <div class="col-sm-6 mb-3 mb-sm-0 mx-3 mt-5">
+    <div class="card">
+      <h5 class="card-header"><%= dom_id(gira) %></h5>
+      <div class="card-body">
+        <h5 class="card-title"><%= gira.name %></h5>
+        <p class="card-text"><%= gira.type_of_gira %></p>
+        <% if user_signed_in? %>
+          <a href="#" class="btn btn-primary">Marcar Presença</a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

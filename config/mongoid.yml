@@ -1,0 +1,6 @@
+development:
+  clients:
+    default:
+      uri: 'mongodb+srv://guiddiel:bhGKyTSBJKUALe9g@clusterterreiro.zljee.mongodb.net/gira_db?retryWrites=true&w=majority&appName=ClusterTerreiro'
+      options:
+        server_selection_timeout: 5
