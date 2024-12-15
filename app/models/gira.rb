@@ -4,4 +4,23 @@ class Gira
   field :event_date, type: Date
   field :name, type: String
   field :type_of_gira, type: String
+
+  # Tornando o método público
+  def month_name
+    months = {
+      1 => "Janeiro",
+      2 => "Fevereiro",
+      3 => "Março",
+      4 => "Abril",
+      5 => "Maio",
+      6 => "Junho",
+      7 => "Julho",
+      8 => "Agosto",
+      9 => "Setembro",
+      10 => "Outubro",
+      11 => "Novembro",
+      12 => "Dezembro",
+    }
+    months[event_date.month]
+  end
 end

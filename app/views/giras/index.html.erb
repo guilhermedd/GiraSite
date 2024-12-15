@@ -3,20 +3,21 @@
 <% content_for :title, "Giras" %>
 
 <div class="container">
-
-    <div class="row justify-content-start">
-
-      <div class="col text-center">
-        <h1>Próximas Giras:</h1>
-      </div>
+  <div class="row justify-content-start">
+    <div class="col text-center">
+      <h1>Próximas Giras:</h1>
     </div>
-    <div id="giras">
+  </div>
 
-      <% @giras.each do |gira| %>
+  <div id="giras">
+    <% @giras.sort_by{|gira| gira.event_date}.group_by{|gira| gira.month_name}.each do |mes, giras|  %>
+      <h2 class="text-left mt-5"><%= mes %>:</h2>
+
+      <% giras.each do |gira| %>  
         <%= render gira %>
       <% end %>
-
-    </div>
+    <% end %>
+  </div>
 
   <% if user_signed_in? and current_user.name == 'admin' %>
     <%= link_to "New gira", new_gira_path %>
