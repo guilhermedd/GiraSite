@@ -20,3 +20,40 @@ footer {
     background-color: #343a40; /* Cor do fundo do rodapé */
     color: white;
 }
+
+/* Estilo do link */
+a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Herda a cor do elemento pai (sem mudar para azul) */
+    display: flex; /* Alinha o texto e o ícone lado a lado */
+    align-items: center; /* Alinha verticalmente o ícone e o texto */
+    transition: transform 0.3s ease-in-out; /* Suaviza a transição para o aumento */
+}
+
+/* Ao passar o mouse, aumenta o tamanho do link inteiro */
+a:hover {
+    color: inherit; /* Garante que a cor não mude ao passar o mouse */
+    transform: scale(1.05); /* Aumenta o tamanho do link inteiro */
+}
+
+/* Espaço entre o texto e o ícone */
+a h2 {
+    margin-right: 8px; /* Espaço entre o texto e o ícone */
+    transition: none; /* Remove a transição do texto para evitar movimento */
+}
+
+/* Estilo do ícone */
+i {
+    margin-left: 8px; /* Espaço entre o texto e a seta */
+    transition: transform 0.3s ease-in-out; /* Suaviza a transição de rotação */
+}
+
+/* Ao passar o mouse, aumenta o tamanho da seta */
+a:hover i {
+    transform: scale(1.2); /* Aumenta a seta ao passar o mouse */
+}
+
+/* Rotaciona a seta quando o dropdown é aberto */
+.collapse.show + .collapsed i {
+    transform: rotate(180deg); /* Gira a seta */
+}

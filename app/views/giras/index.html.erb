@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Giras" %>
 
 <div class="container">
@@ -10,12 +8,28 @@
   </div>
 
   <div id="giras">
-    <% @giras.sort_by{|gira| gira.event_date}.group_by{|gira| gira.month_name}.each do |mes, giras|  %>
-      <h2 class="text-left mt-5"><%= mes %>:</h2>
+    <% @giras.sort_by { |gira| gira.event_date }.group_by { |gira| gira.month_name }.each_with_index do |(mes, giras), index| %>
+      <p class="d-inline-flex gap-1">
+        <!-- Link que mostra o mês e a seta -->
+        <a data-bs-toggle="collapse" href="#collapse<%= index %>" role="button" aria-expanded="false" aria-controls="collapse<%= index %>" class="collapsed">
+          <h2 class="text-left mt-5"><%= mes %></h2>
+          <!-- Ícone de seta -->
+          <i class="bi bi-chevron-down"></i>
+        </a>
+      </p>
 
-      <% giras.each do |gira| %>  
-        <%= render gira %>
-      <% end %>
+      <!-- Conteúdo que será mostrado/ocultado ao clicar -->
+      <div class="collapse multi-collapse" id="collapse<%= index %>">
+        <div class="row">
+          <% giras.each_slice(2) do |gira_pair| %>
+            <div class="row">
+              <% gira_pair.each do |gira| %>
+                <%= render gira %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
 
@@ -23,5 +37,4 @@
     <%= link_to "New gira", new_gira_path %>
   <% end %>
 
-  <p style="color: green"><%= notice %></p>
 </div>

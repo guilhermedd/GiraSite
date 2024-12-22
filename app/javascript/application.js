@@ -24,3 +24,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // Adiciona um evento para cada mudança na seleção
     selectElement.addEventListener("change", checkType);
 });
+

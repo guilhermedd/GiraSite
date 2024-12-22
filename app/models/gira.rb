@@ -23,4 +23,9 @@ class Gira
     }
     months[event_date.month]
   end
+
+  def get_day
+    "%.2d/%.2d/%d" % [event_date.day, event_date.month, event_date.year]
+
+  end
 end
